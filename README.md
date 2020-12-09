@@ -6,5 +6,8 @@
 
 - Component
   - [Dialog](/Component/dialog.md)
+  - [Toast](/Component/toast.md)
 - Table
   - [Color Transparency](/Table/color.md)
+- Other
+  - [Other](/Component/other.md)
