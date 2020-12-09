@@ -3,5 +3,5 @@
 # 目录
 
 - Component
-  - [Dialog](Manual/Dialog)
-  - [Toast](Manual/Toast)
+  - [Dialog](Manual/Dialog.md)
+  - [Toast](Manual/Toast.md)
