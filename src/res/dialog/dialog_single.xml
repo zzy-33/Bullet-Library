@@ -18,6 +18,7 @@
         android:layout_marginEnd="25dp"
         android:background="@drawable/white_radius_5"
         android:orientation="vertical">
+        <!-- radius="5dp" color ="white" -->
 
         <TextView
             android:id="@+id/dialogTitle"

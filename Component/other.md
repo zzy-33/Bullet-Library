@@ -5,6 +5,7 @@
   - [匹配本地图片](#匹配本地图片)
   - [获取手机AaId](#获取手机aaid)
   - [地区限制](#地区限制)
+  - [webView防止内存泄漏](#webview防止内存泄漏)
 
 ## 匹配本地字符串
 
@@ -63,7 +64,7 @@ fun limit(context: Context): Boolean {
                     ignoreCase = true
                 )
             ) {
-//                showTitleDialog(context, R.string.not_support) {}
+                Lod.d("tag","当前地区不支持")
                 return false
             }
         }
@@ -71,5 +72,26 @@ fun limit(context: Context): Boolean {
         Log.e(tag, "location get failed: ${e.message}")
     }
     return true
+}
+```
+
+## webView防止内存泄漏
+
+```kotlin
+fun clearWebView(web: WebView) {
+    if (web != null) {
+        val parent: ViewParent = web.parent
+        if (parent != null) {
+            (parent as ViewGroup).removeView(web)
+            web.destroy()
+        }
+        web.stopLoading()
+//            移除绑定
+        web.settings.javaScriptEnabled = false
+        web.clearHistory();
+        web.clearView();
+        web.removeAllViews();
+        web.destroy();
+    }
 }
 ```
