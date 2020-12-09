@@ -5,7 +5,6 @@
 ## 目录
 
 - Component
-  - [Dialog](/Manual/dialog.md)
-  - [Toast](/Manual/toast.md)
+  - [Dialog](/Component/dialog.md)
 - Table
   - [Color Transparency](/Table/color.md)
