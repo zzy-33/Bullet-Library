@@ -11,13 +11,14 @@ Android中的颜色值通常遵循RGB/ARGB标准，使用时通常以“#”字�
 常用的颜色值格式为：
 
 ```bash
- #RGB
+ #RGB       //R：red    G：green    B：Blue
 
- #ARGB
+ #ARGB      //A:alpha   R：red    G：green    B：Blue
 
- #RRGGBB
+ #RRGGBB    //RR：red    GG：green    BB：Blue
 
- #AARRGGBB
+ #AARRGGBB  //AA:alpha  RR：red    GG：green    BB：Blue
+ 
  ```
 
 ## 干货
