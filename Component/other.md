@@ -6,6 +6,7 @@
   - [获取手机AaId](#获取手机aaid)
   - [地区限制](#地区限制)
   - [webView防止内存泄漏](#webview防止内存泄漏)
+  - [AlertDialog透明背景](#alertdialog透明背景)
 
 ## 匹配本地字符串
 
@@ -93,5 +94,20 @@ fun clearWebView(web: WebView) {
         web.removeAllViews();
         web.destroy();
     }
+}
+```
+
+## AlertDialog透明背景
+
+将AlertDiaolog的背景色设置成透明色
+
+```kotlin
+fun setDialogWindows(dialog: Dialog) {
+    val dialogWindow = dialog.window
+    dialogWindow?.setBackgroundDrawableResource(R.color.color_transparent) //"#00000000"
+    dialogWindow?.setLayout(
+        WindowManager.LayoutParams.WRAP_CONTENT,
+        WindowManager.LayoutParams.WRAP_CONTENT
+    )
 }
 ```
