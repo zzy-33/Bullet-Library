@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:background="@color/black"
+    tools:layout_height="match_parent"
+    tools:layout_width="match_parent">
+
+    <LinearLayout
+        android:id="@+id/angry_dialog_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/white_radius_5"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/angry_dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Tips" />
+
+        <TextView
+            android:id="@+id/angry_dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minHeight="110dp"
+            android:paddingStart="32dp"
+            android:paddingTop="22dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="22dp"
+            android:textColor="@color/black_01"
+            android:textSize="14sp"
+            tools:text="questionnaire_failed_text2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/angry_dialog_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textColor="@color/black_03"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Cancel" />
+
+            <View
+                android:id="@+id/angry_dialog_vertical_view"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/angry_dialog_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:textColor="@color/black_03"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="OK" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
