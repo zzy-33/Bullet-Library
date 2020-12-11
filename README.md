@@ -8,6 +8,3 @@
   - [Dialog](/Component/dialog.md)
   - [Toast](/Component/toast.md)
   - [Other](#android)
-- Table
-  - [Color Transparency](/Table/color.md)
-  
