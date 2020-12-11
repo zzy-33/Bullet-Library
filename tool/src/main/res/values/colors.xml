@@ -10,4 +10,8 @@
 
     <color name="gray">#D8D8D8D8</color>
 
+    <color name="purple">#FF49476A</color>
+    <color name="purple_01">#FF9696B5</color>
+
+
 </resources>

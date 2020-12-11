@@ -12,4 +12,24 @@
         <!--提示框背景-->
         <item name="android:windowBackground">@color/transparent</item>
     </style>
+
+    <!--    baseDialog-->
+    <style name="baseDialogTheme" parent="base_dialog_style">
+        <item name="dialog_main_bg">@drawable/white_radius_5</item>
+        <item name="dialog_view_line">@color/gray</item>
+        <item name="dialog_view_title">@color/black_03</item>
+        <item name="dialog_view_content">@color/black_01</item>
+        <item name="dialog_view_cancel">@color/black_03</item>
+        <item name="dialog_view_ok">@color/black_03</item>
+    </style>
+    <!--    purpleDialog-->
+    <style name="purpleDialogTheme" parent="base_dialog_style">
+        <item name="dialog_main_bg">@drawable/purple_radius_5</item>
+        <item name="dialog_view_line">@color/purple_01</item>
+        <item name="dialog_view_title">@color/white</item>
+        <item name="dialog_view_content">@color/white</item>
+        <item name="dialog_view_cancel">@color/white</item>
+        <item name="dialog_view_ok">@color/white</item>
+    </style>
+
 </resources>

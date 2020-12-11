@@ -6,9 +6,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
-    tools:background="@color/black"
-    tools:layout_height="match_parent"
-    tools:layout_width="match_parent">
+    tools:theme="@style/baseDialogTheme">
 
     <LinearLayout
         android:id="@+id/angry_dialog_view"
@@ -17,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:background="@drawable/white_radius_5"
+        android:background="?attr/dialog_main_bg"
         android:orientation="vertical">
 
         <TextView
@@ -27,8 +25,8 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:paddingTop="15dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textColor="?attr/dialog_view_title"
+            android:textSize="20sp"
             android:textStyle="bold"
             tools:text="Tips" />
 
@@ -42,14 +40,14 @@
             android:paddingTop="22dp"
             android:paddingEnd="32dp"
             android:paddingBottom="22dp"
-            android:textColor="@color/black_01"
-            android:textSize="14sp"
+            android:textColor="?attr/dialog_view_content"
+            android:textSize="15sp"
             tools:text="questionnaire_failed_text2" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/gray" />
+            android:background="?attr/dialog_view_line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,8 +62,8 @@
                 android:gravity="center"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:textColor="@color/black_03"
-                android:textSize="16sp"
+                android:textColor="?attr/dialog_view_cancel"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 tools:text="Cancel" />
 
@@ -73,7 +71,7 @@
                 android:id="@+id/angry_dialog_vertical_view"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="@color/gray" />
+                android:background="?attr/dialog_view_line" />
 
             <TextView
                 android:id="@+id/angry_dialog_confirm"
@@ -83,8 +81,8 @@
                 android:gravity="center"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:textColor="@color/black_03"
-                android:textSize="16sp"
+                android:textColor="?attr/dialog_view_ok"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 tools:text="OK" />
         </LinearLayout>

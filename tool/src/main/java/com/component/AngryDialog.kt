@@ -3,11 +3,12 @@ package com.component
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
-import android.text.TextUtils
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -25,6 +26,7 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         private var content: String = ""
         private var cancel: String = "Cancel"
         private var confirm: String = "OK"
+        private var dialogTheme: String = ""
 
         private var titleColor: Int = 0
         private var contentColor: Int = 0
@@ -49,23 +51,26 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         @SuppressLint("InflateParams")
         fun create(): AngryDialog {
             val dialog = AngryDialog(context, R.style.base_dialog_style)
-            val view = LayoutInflater.from(context).inflate(R.layout.angry_dialog, null)
+            when (dialogTheme) {
+                "" -> context.setTheme(R.style.baseDialogTheme)
+                "purple" -> context.setTheme(R.style.purpleDialogTheme)
+            }
+
             if (contentView != null) {
                 dialog.addContentView(
-                    contentView!!,
-                    ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+                    contentView!!, ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
                 )
             } else {
+                contentView = LayoutInflater.from(context).inflate(R.layout.angry_dialog, null)
                 dialog.addContentView(
-                    view,
-                    ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+                    contentView!!, ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
                 )
+                initView(dialog, contentView!!)
             }
             val attributes = dialog.window?.attributes
             attributes?.width = MATCH_PARENT
             dialog.window?.attributes = attributes
             dialog.setCanceledOnTouchOutside(canceledOnTouch)
-            initView(dialog, view)
             return dialog
         }
 
@@ -137,6 +142,21 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         }
 
         /**
+         * choose dialog theme
+         */
+        fun setDialogTheme(theme: String): Builder {
+            this.dialogTheme = theme
+            return this
+        }
+
+        fun setDialogTheme(theme: Int): Builder {
+            if (theme != 0) {
+                this.dialogTheme = context.getString(theme)
+            }
+            return this
+        }
+
+        /**
          * set dialog View
          */
         fun setView(view: View): Builder {
@@ -164,23 +184,19 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         /**
          * title TextView By Style
          */
-        fun setTitle(
-            text: String = "Tips",
-            textColor: Int = R.color.black_03,
-            textSize: Float = 18F
-        ): Builder {
+        fun setTitle(text: String): Builder {
             this.title = text
-            this.titleColor = textColor
-            this.titleSize = textSize
             return this
         }
 
-        fun setTitle(
-            text: Int = R.string.tips,
-            textColor: Int = R.color.black_03,
-            textSize: Float = 18F
-        ): Builder {
-            this.title = context.getString(text)
+        fun setTitle(text: Int): Builder {
+            if (text != 0) {
+                this.title = context.getString(text)
+            }
+            return this
+        }
+
+        fun setTitleStyle(textColor: Int, textSize: Float): Builder {
             this.titleColor = textColor
             this.titleSize = textSize
             return this
@@ -189,23 +205,19 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         /**
          * content TextView By Style
          */
-        fun setContent(
-            text: String,
-            textColor: Int = R.color.black_01,
-            textSize: Float = 14F
-        ): Builder {
+        fun setContent(text: String): Builder {
             this.content = text
-            this.contentColor = textColor
-            this.contentSize = textSize
             return this
         }
 
-        fun setContent(
-            text: Int,
-            textColor: Int = R.color.black_01,
-            textSize: Float = 14F
-        ): Builder {
-            this.content = context.getString(text)
+        fun setContent(text: Int): Builder {
+            if (text != 0) {
+                this.content = context.getString(text)
+            }
+            return this
+        }
+
+        fun setContentStyle(textColor: Int, textSize: Float): Builder {
             this.contentColor = textColor
             this.contentSize = textSize
             return this
@@ -214,52 +226,43 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         /**
          * cancel Button By TextView Style
          */
-        fun setCancelButton(
-            text: String = "Cancel",
-            textColor: Int = R.color.black_01,
-            textSize: Float = 16F
-        ): Builder {
+        fun setCancel(text: String): Builder {
             this.cancel = text
-            this.cancelColor = textColor
-            this.cancelSize = textSize
             return this
         }
 
-        fun setCancelButton(
-            text: Int = R.string.cancel,
-            textColor: Int = R.color.black_01,
-            textSize: Float = 16F
-        ): Builder {
-            this.cancel = context.getString(text)
+        fun setCancel(text: Int): Builder {
+            if (text != 0) {
+                this.cancel = context.getString(text)
+            }
+            return this
+        }
+
+        fun setCancelStyle(textColor: Int, textSize: Float) {
             this.cancelColor = textColor
             this.cancelSize = textSize
-            return this
         }
 
         /**
          * confirm Button By TextView Style
          */
-        fun setConfirmButton(
-            text: String = "OK",
-            textColor: Int = R.color.black_01,
-            textSize: Float = 16F
-        ): Builder {
+        fun setConfirm(text: String): Builder {
             this.confirm = text
-            this.confirmColor = textColor
-            this.confirmSize = textSize
             return this
         }
 
-        fun setConfirmButton(
-            text: Int = R.string.ok,
-            textColor: Int = R.color.black_01,
-            textSize: Float = 16F
-        ): Builder {
-            this.confirm = context.getString(text)
-            this.confirmColor = textColor
-            this.confirmSize = textSize
+        fun setConfirm(text: Int): Builder {
+            if (text != 0) {
+                this.confirm = context.getString(text)
+            }
             return this
         }
+
+        fun setConfirmStyle(textColor: Int, textSize: Float) {
+            this.confirmColor = textColor
+            this.confirmSize = textSize
+        }
+
 
         fun setCancelListener(listener: View.OnClickListener? = null): Builder {
             this.dialogCancelListener = listener
@@ -272,3 +275,4 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         }
     }
 }
+

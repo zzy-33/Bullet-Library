@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    dialog-->
+    <attr name="dialog_main_bg" format="reference|color" />
+    <attr name="dialog_view_line" format="color" />
+    <attr name="dialog_view_title" format="color" />
+    <attr name="dialog_view_content" format="color" />
+    <attr name="dialog_view_cancel" format="color" />
+    <attr name="dialog_view_ok" format="color" />
+
+</resources>
