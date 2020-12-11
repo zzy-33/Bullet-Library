@@ -42,7 +42,6 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
 
         private var dialogCancelListener: View.OnClickListener? = null
         private var dialogConfirmListener: View.OnClickListener? = null
-        private var viewLayoutResId: Int = 0
 
         /**
          * The basic layout must set the width and height, otherwise the layout will be displayed
@@ -50,12 +49,20 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         @SuppressLint("InflateParams")
         fun create(): AngryDialog {
             val dialog = AngryDialog(context, R.style.base_dialog_style)
-            val viewId = if (viewLayoutResId == 0) R.layout.angry_dialog else viewLayoutResId
-            val view = LayoutInflater.from(context).inflate(viewId, null)
-
-            dialog.setContentView(view)
+            val view = LayoutInflater.from(context).inflate(R.layout.angry_dialog, null)
+            if (contentView != null) {
+                dialog.addContentView(
+                    contentView!!,
+                    ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+                )
+            } else {
+                dialog.addContentView(
+                    view,
+                    ViewGroup.LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+                )
+            }
             val attributes = dialog.window?.attributes
-            attributes?.width = ViewGroup.LayoutParams.MATCH_PARENT
+            attributes?.width = MATCH_PARENT
             dialog.window?.attributes = attributes
             dialog.setCanceledOnTouchOutside(canceledOnTouch)
             initView(dialog, view)
@@ -129,16 +136,11 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             }
         }
 
-        fun setView(view: View): Builder {
-            this.contentView = view
-            return this
-        }
-
         /**
          * set dialog View
          */
-        fun setView(layoutResId: Int): Builder {
-            this.viewLayoutResId = layoutResId
+        fun setView(view: View): Builder {
+            this.contentView = view
             return this
         }
 
@@ -268,8 +270,5 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             this.dialogConfirmListener = listener
             return this
         }
-
     }
-
 }
-
