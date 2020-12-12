@@ -50,7 +50,7 @@
     <!--    redDialog-->
     <style name="Theme.Dialog.red" parent="Theme.dialog">
         <item name="dialog_view_marginBottom">20dp</item>
-        <item name="dialog_view_width">130dp</item>
+        <item name="dialog_view_width">140dp</item>
         <item name="dialog_view_height">44dp</item>
         <item name="dialog_view_weight">0</item>
         <item name="dialog_main_bg">@drawable/shape_white_5</item>
