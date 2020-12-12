@@ -1,103 +1,72 @@
-# 目录
+# Directory
 
-- 目录
-  - [AlertDialog透明背景](#alertdialog透明背景)
-  - [SingleDialog](#SingleDialog)
-  - [DoubleDialog](#doubledialog)
+- [Directory](#directory)
+  - [Introduction](#introduction)
+  - [How to use](#how-to-use)
+- [Property](#property)
+  - [setDialogTheme](#setdialogtheme)
+  - [setView](#setview)
+  - [setCanceledOnTouchOutside](#setcanceledontouchoutside)
+  - [setDialogBackground](#setdialogbackground)
+  - [setTitle](#settitle)
+  - [setTitleStyle](#settitlestyle)
+  - [setContent](#setcontent)
+  - [setContentStyle](#setcontentstyle)
+  - [setCancel](#setcancel)
+  - [setCancelStyle](#setcancelstyle)
+  - [setConfirm](#setconfirm)
+  - [setConfirmStyle](#setconfirmstyle)
+  - [setCancelListener](#setcancellistener)
+  - [setConfirmListener](#setconfirmlistener)
+  
+## Introduction
 
-## AlertDialog透明背景
 
-将AlertDiaolog的背景色设置成透明色
 
-```kotlin
-fun setDialogWindows(dialog: Dialog) {
-    val dialogWindow = dialog.window
-    dialogWindow?.setBackgroundDrawableResource(R.color.color_transparent) //"#00000000"
-    dialogWindow?.setLayout(
-        WindowManager.LayoutParams.WRAP_CONTENT,
-        WindowManager.LayoutParams.WRAP_CONTENT
-    )
-}
+![white](../Image/dialog1.png) ![white2](../Image/dialog2.png)![white3](../Image/dialog3.png)![white4](../Image/dialog4.png)
+
+## How to use
+
+```kotlin 
+AngryDialog.Builder(this)
+    .setDialogTheme("white")
+    .setTitle("Tips")
+    .setContent("white Dialog with tips")
+    .setConfirmListener(View.OnClickListener {
+        Log.e("AngryDialog","confirm is onclick")
+    })
+    .create()
+    .show()
 ```
 
-## Dialog By One Button
+# Property
 
-![single](../Image/singleDialog1.png)
+## setDialogTheme
 
-Xml界面：[dialog_single.xml](/src/res/dialog/dialog_single.xml)
+可选Theme为：purple,white,red
 
-```kotlin
-fun showSingleDialog(context: Context, title: String, content: String) {
-    val builder = android.app.AlertDialog.Builder(context)
-    val view = LayoutInflater.from(context).inflate(R.layout.dialog_single, null)
-    val dialogTitle = view.findViewById<TextView>(R.id.dialogTitle)
-    val dialogContent = view.findViewById<TextView>(R.id.dialogMainText)
-    val dialog = builder.setView(view).create()
-    setDialogWindows(dialog)
-    dialogTitle.text = title
-    dialogContent.text = content
-    view.findViewById<TextView>(R.id.dialogConfirm).setOnClickListener {
-        dialog.dismiss()
-    }
-    dialog.setCanceledOnTouchOutside(false) //取消外围触控关闭
-    dialog.show()
-}
-```
+## setView
 
-## Dialog By Double Button
+## setCanceledOnTouchOutside
 
-![double](../Image/singleDialog1.png)
+## setDialogBackground
 
-Xml界面：[dialog_double.xml](../src/res/dialog/dialog_double.xml)
+## setTitle
 
-```kotlin
-fun showDoubleDialog(context: Context, title: String, content: String, btnConfirm: String, okOnclick: () -> Unit) {
-    val builder = android.app.AlertDialog.Builder(context)
-    val view = LayoutInflater.from(context).inflate(R.layout.dialog_double, null)
-    val dialogTitle = view.findViewById<TextView>(R.id.dialog_double_title)
-    val dialogContent = view.findViewById<TextView>(R.id.dialog_double_content)
-    val dialogConfirm = view.findViewById<TextView>(R.id.dialog_double_confirm)
-    val dialog = builder.setView(view).create()
-    setDialogWindows(dialog)
-    dialogTitle.text = title
-    dialogContent.text = content
-    dialogConfirm.text = btnConfirm
-    view.findViewById<TextView>(R.id.dialog_double_cancel).setOnClickListener {
-        dialog.dismiss()
-    }
-    dialogConfirm.setOnClickListener {
-        dialog.dismiss()
-        okOnclick()
-    }
-    dialog.setCanceledOnTouchOutside(false) //取消外围触控关闭
-    dialog.show()
-}
-```
+## setTitleStyle
 
-## Dialog By EditText
+## setContent
 
-![editDialog](../Image/editDialog.png)
+## setContentStyle
 
-Xml页面：[dialog_editText](../src/res/dialog/dialog_editText.xml)
+## setCancel
 
-```kotlin
-fun showEditTextDialog(context: Context, title: String, setCode: (String, android.app.AlertDialog) -> Unit) {
-    val builder = android.app.AlertDialog.Builder(context)
-    val view = LayoutInflater.from(context).inflate(R.layout.dialog_editText, null)
-    val dialogTitle = view.findViewById<TextView>(R.id.dialog_title)
-    val dialogConfirm = view.findViewById<TextView>(R.id.dialog_confirm)
-    val dialogEdit = view.findViewById<EditText>(R.id.dialog_edit)
-    val dialog = builder.setView(view).create()
-    dialogTitle.text = title
-    setDialogWindows(dialog)
-    dialog.setCanceledOnTouchOutside(true)
-    dialog.show()
-    dialogConfirm.setOnClickListener {
-        if (dialogEdit.text.toString().isEmpty()) {
-            Log.d("EditText By Dialog", "EditText must be Empty!")
-        } else {
-            setCode(dialogEdit.text.toString(), dialog)
-        }
-    }
-}
-```
+## setCancelStyle
+
+## setConfirm
+
+## setConfirmStyle
+
+## setCancelListener
+
+## setConfirmListener
