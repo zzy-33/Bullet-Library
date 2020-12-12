@@ -146,6 +146,11 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             } else {
                 dialogTitle.visibility = View.VISIBLE
             }
+            if (content.isEmpty()) {
+                dialogContent.visibility = View.GONE
+            } else {
+                dialogContent.visibility = View.VISIBLE
+            }
         }
 
         /**

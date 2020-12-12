@@ -21,11 +21,13 @@
   
 ## Introduction
 
+Use AngryDialog’s well-designed dialog, such as: upgrade prompt, select prompt and other prompt methods. It contains many more styles, which helps to adapt to different scenarios.
 
-
-![white](../Image/dialog1.png) ![white2](../Image/dialog2.png)![white3](../Image/dialog3.png)![white4](../Image/dialog4.png)
+![white](../Image/dialog1.png) ![white2](/Image/dialog.png)![white3](../Image/dialog3.png)![white4](../Image/dialog4.png)
 
 ## How to use
+
+It is very simple to use. Initialize AngryDialog. You can also modify and customize the style of the dialog through existing properties. At the same time, you can also use an existing theme and select the corresponding dialog theme.
 
 ```kotlin 
 AngryDialog.Builder(this)
@@ -41,32 +43,58 @@ AngryDialog.Builder(this)
 
 # Property
 
-## setDialogTheme
+## setDialogTheme("white")
 
-可选Theme为：purple,white,red
+This is to set the theme of the dialog. Select the theme of the dialog by passing in the corresponding String. Default theme: "white", the existing themes: "purple", "red", "white".
 
-## setView
+## setView(view)
 
-## setCanceledOnTouchOutside
+In the existing properties or themes, you can’t find the style you want, reset the Dialog layout.
 
-## setDialogBackground
+## setCanceledOnTouchOutside(false)
 
-## setTitle
+When enabled, it can control the touch mask outside the dialog to close the dialog.
 
-## setTitleStyle
+## setDialogBackground(R.drawable.step_white)
 
-## setContent
+Redesign the external layout of Dialog, you can pass in color or drawable
 
-## setContentStyle
+## setTitle("Tips")
 
-## setCancel
+Set the dialog title, if the value of the incoming title is  null or empty, the title will not be displayed
 
-## setCancelStyle
+## setTitleStyle(R.color.black,14F)
 
-## setConfirm
+Set the style of the title, including: the color of the title font, the size of the title font
 
-## setConfirmStyle
+## setContent("White Dialog , Hellow World !")
 
-## setCancelListener
+Set the content, if the value of the set content is empty or null, the content will not be displayed
 
-## setConfirmListener
+## setContentStyle(R.color.black,14F)
+
+Set the content, if the value of the set content is empty, the content will not be displayed
+
+## setCancel("Cancel")
+
+After enabling, you can modify the font of the "OK" button, set it to empty, dialog will not display the button. Default value: confirm
+
+## setCancelStyle(R.color.black,14F)
+
+Modify the font style of the cancel button, including: font color, font size
+
+## setConfirm("OK")
+
+After enabling, you can modify the font of the OK button, set it to empty, dialog will not display the button.Default value: Confirm
+
+## setConfirmStyle(R.color.black,14F)
+
+Modify the font style of the confirmation button, including: font color, font size
+
+## setCancelListener(View.OnClickListener{})
+
+Add the listener for the click event of the cancel button, the Dialog will be closed by default
+
+## setConfirmListener(View.OnClickListener{})
+
+Add a listener for the click event of the determined button, the Dialog will be closed by default
