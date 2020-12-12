@@ -2,16 +2,20 @@
 <resources>
     <color name="transparent">#00000000</color>
 
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
 
-    <color name="black">#FF000000</color>
-    <color name="black_01">#FF17324D</color>
-    <color name="black_03">#FF333333</color>
+    <color name="black">#000000</color>
+    <color name="black_01">#17324D</color>
+    <color name="black_03">#333333</color>
+    <color name="black_04">#343434</color>
 
     <color name="gray">#D8D8D8D8</color>
+    <color name="gray_01">#F0F0F0</color>
 
-    <color name="purple">#FF49476A</color>
-    <color name="purple_01">#FF9696B5</color>
+    <color name="purple">#49476A</color>
+    <color name="purple_01">#9696B5</color>
 
+    <color name="red">#FB5257</color>
+    <color name="red_01">#F42944</color>
 
 </resources>

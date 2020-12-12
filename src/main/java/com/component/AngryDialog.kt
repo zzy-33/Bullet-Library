@@ -22,7 +22,7 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
 
     class Builder(private val context: Context) {
 
-        private var title: String = "Tips"
+        private var title: String = ""
         private var content: String = ""
         private var cancel: String = "Cancel"
         private var confirm: String = "OK"
@@ -50,10 +50,12 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
          */
         @SuppressLint("InflateParams")
         fun create(): AngryDialog {
-            val dialog = AngryDialog(context, R.style.base_dialog_style)
+            val dialog = AngryDialog(context, R.style.Theme_dialog)
             when (dialogTheme) {
-                "" -> context.setTheme(R.style.baseDialogTheme)
-                "purple" -> context.setTheme(R.style.purpleDialogTheme)
+                "white" -> context.setTheme(R.style.Theme_Dialog_white)
+                "purple" -> context.setTheme(R.style.Theme_Dialog_purple)
+                "red" -> context.setTheme(R.style.Theme_Dialog_red)
+                else -> context.setTheme(R.style.Theme_Dialog_white)
             }
 
             if (contentView != null) {
@@ -139,10 +141,16 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
                     dialogVertical.visibility = View.GONE
                 }
             }
+            if (title.isEmpty()) {
+                dialogTitle.visibility = View.GONE
+            } else {
+                dialogTitle.visibility = View.VISIBLE
+            }
         }
 
         /**
          * choose dialog theme
+         * can choose "purple","white"，"red"
          */
         fun setDialogTheme(theme: String): Builder {
             this.dialogTheme = theme
