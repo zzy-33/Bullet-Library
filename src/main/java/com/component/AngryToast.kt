@@ -163,6 +163,12 @@ class AngryToast(context: Context) : Toast(context) {
             this.toastTopIcon = topIcon
             return this
         }
+
+        fun show(): AngryToast {
+            val toast: AngryToast = create()
+            toast.show()
+            return toast
+        }
     }
 
 }
