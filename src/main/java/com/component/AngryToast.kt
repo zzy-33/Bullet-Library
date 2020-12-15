@@ -2,6 +2,7 @@ package com.component
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.tool.R
 
@@ -20,21 +22,31 @@ class AngryToast(context: Context) : Toast(context) {
 
     class Builder(private val context: Context) {
 
+
+        private var contentColor: Int = 0
         private var toastGravity: Int = Gravity.TOP
         private var toastGravityX: Int = 0
         private var toastGravityY: Int = 30
         private var toastDuration: Int = LENGTH_SHORT
         private var toastBackground: Int = 0
         private var toastIcon: Int = 0
+        private var toastTopIcon: Int = 0
 
         private var toastContent: String = ""
+
+        private var contentSize: Float = 0F
+
+        private var contentView: View? = null
 
         @SuppressLint("InflateParams")
         fun create(): AngryToast {
             val toast = AngryToast(context)
-            val contentView = LayoutInflater.from(context).inflate(R.layout.angry_toast, null)
+            val view = LayoutInflater.from(context).inflate(R.layout.angry_toast, null)
+            if (contentView == null) {
+                contentView = view
+                initView(toast, contentView!!)
+            }
             toast.view = contentView
-            initView(toast, contentView)
             return toast
         }
 
@@ -42,20 +54,52 @@ class AngryToast(context: Context) : Toast(context) {
             val toastBg = view.findViewById<LinearLayout>(R.id.toast)
             val message = view.findViewById<TextView>(R.id.toastText)
             val icon = view.findViewById<ImageView>(R.id.toastIcon)
+            val topIcon = view.findViewById<ImageView>(R.id.toastTopIcon)
+
             when {
-                toastBackground != 0 -> toastBg?.setBackgroundResource(toastBackground)
-                toastIcon != 0 -> Glide.with(icon).load(toastIcon).into(icon)
-                toastGravity != 0 -> toast.setGravity(toastGravity, toastGravityX, toastGravityY)
-                toastDuration != 0 -> toast.duration = toastDuration
+                toastGravity != 0 -> {
+                    toast.setGravity(toastGravity, toastGravityX, toastGravityY)
+                }
+                toastDuration != 0 -> {
+                    toast.duration = toastDuration
+                }
+                toastBackground != 0 -> {
+                    toastBg?.setBackgroundResource(toastBackground)
+                }
+                contentColor != 0 -> {
+                    message.setTextColor(ContextCompat.getColor(context, contentColor))
+                }
+                contentSize != 0F -> {
+                    message.setTextSize(TypedValue.COMPLEX_UNIT_SP, contentSize)
+                }
             }
+            Glide.with(icon).load(toastIcon).into(icon)
+            Glide.with(topIcon).load(toastTopIcon).into(topIcon)
             message?.text = toastContent
             if (toastIcon != 0) {
                 icon.visibility = View.VISIBLE
             } else {
                 icon.visibility = View.GONE
             }
+            if (toastTopIcon != 0) {
+                topIcon.visibility = View.VISIBLE
+            } else {
+                topIcon.visibility = View.GONE
+            }
         }
 
+        /**
+         * set Toast View
+         */
+        fun setView(view: View): Builder {
+            this.contentView = view
+            return this
+        }
+
+        /**
+         * show Toast position
+         * gravity use by " Gravity.CENTER " ,"  Gravity.TOP ", " Gravity.BOTTOM "
+         */
         fun setGravity(gravity: Int, x: Int, y: Int): Builder {
             this.toastGravity = gravity
             this.toastGravityX = x
@@ -63,11 +107,18 @@ class AngryToast(context: Context) : Toast(context) {
             return this
         }
 
+        /**
+         * show toast time
+         * duration use by " Toast.LENGTH_LONG " ," Toast.LENGTH_SHORT "
+         */
         fun setDuration(duration: Int): Builder {
             this.toastDuration = duration
             return this
         }
 
+        /**
+         * set content text
+         */
         fun setContent(content: String): Builder {
             this.toastContent = content
             return this
@@ -81,6 +132,15 @@ class AngryToast(context: Context) : Toast(context) {
         }
 
         /**
+         * set content text Style
+         */
+        fun setContentStyle(textColor: Int, textSize: Float): Builder {
+            this.contentColor = textColor
+            this.contentSize = textSize
+            return this
+        }
+
+        /**
          * set Toast Background
          */
         fun setBackground(bg: Int): Builder {
@@ -88,8 +148,19 @@ class AngryToast(context: Context) : Toast(context) {
             return this
         }
 
+        /**
+         * set the icon to the left of the content
+         */
         fun setIcon(icon: Int): Builder {
             this.toastIcon = icon
+            return this
+        }
+
+        /**
+         * set Icon above content
+         */
+        fun setTopIcon(topIcon: Int): Builder {
+            this.toastTopIcon = topIcon
             return this
         }
     }
