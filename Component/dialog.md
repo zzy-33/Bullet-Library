@@ -16,8 +16,8 @@
   - [setCancelStyle](#setcancelstyletextcolor-int-textsize-float)
   - [setConfirm](#setconfirmtextstring)
   - [setConfirmStyle](#setconfirmstyletextcolor-int-textsize-float)
-  - [setCancelListener(listener: View.OnClickListener? = null)](#setcancellistenerlistener-viewonclicklistener--null)
-  - [setConfirmListener(listener: View.OnClickListener? = null)](#setconfirmlistenerlistener-viewonclicklistener--null)
+  - [setCancelListener](#setcancellistenerlistener-viewonclicklistener--null)
+  - [setConfirmListener](#setconfirmlistenerlistener-viewonclicklistener--null)
   
 ## Introduction
 
