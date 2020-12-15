@@ -49,6 +49,11 @@ class AngryToast(context: Context) : Toast(context) {
                 toastDuration != 0 -> toast.duration = toastDuration
             }
             message?.text = toastContent
+            if (toastIcon != 0) {
+                icon.visibility = View.VISIBLE
+            } else {
+                icon.visibility = View.GONE
+            }
         }
 
         fun setGravity(gravity: Int, x: Int, y: Int): Builder {
