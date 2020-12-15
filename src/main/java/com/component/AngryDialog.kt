@@ -51,11 +51,8 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
         @SuppressLint("InflateParams")
         fun create(): AngryDialog {
             val dialog = AngryDialog(context, R.style.Theme_dialog)
-            when (dialogTheme) {
-                "white" -> context.setTheme(R.style.Theme_Dialog_white)
-                "purple" -> context.setTheme(R.style.Theme_Dialog_purple)
-                "red" -> context.setTheme(R.style.Theme_Dialog_red)
-                else -> context.setTheme(R.style.Theme_Dialog_white)
+            if (dialogTheme.isNotEmpty()) {
+                context.setTheme(R.style.Theme_Dialog_red)
             }
 
             if (contentView != null) {
@@ -89,34 +86,33 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             dialogCancel.text = cancel
             dialogConfirm.text = confirm
 
-            when {
-                background != 0 -> {
-                    dialogView.setBackgroundResource(background)
-                }
-                titleColor != 0 -> {
-                    dialogTitle.setTextColor(ContextCompat.getColor(context, titleColor))
-                }
-                contentColor != 0 -> {
-                    dialogContent.setTextColor(ContextCompat.getColor(context, contentColor))
-                }
-                cancelColor != 0 -> {
-                    dialogCancel.setTextColor(ContextCompat.getColor(context, cancelColor))
-                }
-                confirmColor != 0 -> {
-                    dialogConfirm.setTextColor(ContextCompat.getColor(context, confirmColor))
-                }
-                contentSize != 0F -> {
-                    dialogContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, contentSize)
-                }
-                titleSize != 0F -> {
-                    dialogTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, titleSize)
-                }
-                cancelSize != 0F -> {
-                    dialogCancel.setTextSize(TypedValue.COMPLEX_UNIT_SP, cancelSize)
-                }
-                confirmSize != 0F -> {
-                    dialogConfirm.setTextSize(TypedValue.COMPLEX_UNIT_SP, confirmSize)
-                }
+
+            if (background != 0) {
+                dialogView.setBackgroundResource(background)
+            }
+            if (titleColor != 0) {
+                dialogTitle.setTextColor(ContextCompat.getColor(context, titleColor))
+            }
+            if (contentColor != 0) {
+                dialogContent.setTextColor(ContextCompat.getColor(context, contentColor))
+            }
+            if (cancelColor != 0) {
+                dialogCancel.setTextColor(ContextCompat.getColor(context, cancelColor))
+            }
+            if (confirmColor != 0) {
+                dialogConfirm.setTextColor(ContextCompat.getColor(context, confirmColor))
+            }
+            if (contentSize != 0F) {
+                dialogContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, contentSize)
+            }
+            if (titleSize != 0F) {
+                dialogTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, titleSize)
+            }
+            if (cancelSize != 0F) {
+                dialogCancel.setTextSize(TypedValue.COMPLEX_UNIT_SP, cancelSize)
+            }
+            if (confirmSize != 0F) {
+                dialogConfirm.setTextSize(TypedValue.COMPLEX_UNIT_SP, confirmSize)
             }
 
             dialogCancel.setOnClickListener {
@@ -251,9 +247,10 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             return this
         }
 
-        fun setCancelStyle(textColor: Int, textSize: Float) {
+        fun setCancelStyle(textColor: Int, textSize: Float): Builder {
             this.cancelColor = textColor
             this.cancelSize = textSize
+            return this
         }
 
         /**
@@ -271,9 +268,10 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             return this
         }
 
-        fun setConfirmStyle(textColor: Int, textSize: Float) {
+        fun setConfirmStyle(textColor: Int, textSize: Float): Builder {
             this.confirmColor = textColor
             this.confirmSize = textSize
+            return this
         }
 
 

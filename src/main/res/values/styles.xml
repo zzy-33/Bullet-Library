@@ -15,38 +15,6 @@
         <item name="android:windowBackground">@color/transparent</item>
     </style>
 
-    <!--    whiteDialog-->
-    <style name="Theme.Dialog.white" parent="Theme.dialog">
-        <item name="dialog_view_marginBottom">0dp</item>
-        <item name="dialog_view_width">0dp</item>
-        <item name="dialog_view_height">50dp</item>
-        <item name="dialog_view_weight">1</item>
-        <item name="dialog_main_bg">@drawable/shape_white_5</item>
-        <item name="dialog_view_line">@color/gray</item>
-        <item name="dialog_view_title">@color/black_03</item>
-        <item name="dialog_view_content">@color/black_01</item>
-        <item name="dialog_view_cancel">@color/black_03</item>
-        <item name="dialog_view_ok">@color/black_03</item>
-        <item name="dialog_view_cancel_bg">@null</item>
-        <item name="dialog_view_ok_bg">@null</item>
-        <item name="dialog_view_cancel_marginEnd">0dp</item>
-    </style>
-    <!--    purpleDialog-->
-    <style name="Theme.Dialog.purple" parent="Theme.dialog">
-        <item name="dialog_view_marginBottom">0dp</item>
-        <item name="dialog_view_height">50dp</item>
-        <item name="dialog_view_width">0dp</item>
-        <item name="dialog_view_weight">1</item>
-        <item name="dialog_main_bg">@drawable/shape_purple_5</item>
-        <item name="dialog_view_line">@color/purple_01</item>
-        <item name="dialog_view_title">@color/white</item>
-        <item name="dialog_view_content">@color/white</item>
-        <item name="dialog_view_cancel">@color/white</item>
-        <item name="dialog_view_ok">@color/white</item>
-        <item name="dialog_view_cancel_bg">@null</item>
-        <item name="dialog_view_ok_bg">@null</item>
-        <item name="dialog_view_cancel_marginEnd">0dp</item>
-    </style>
     <!--    redDialog-->
     <style name="Theme.Dialog.red" parent="Theme.dialog">
         <item name="dialog_view_marginBottom">20dp</item>

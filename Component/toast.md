@@ -3,14 +3,14 @@
 - [Directory](#directory)
   - [How to use](#how-to-use)
 - [Property](#property)
-  - [setView](#setview)
-  - [setGravity](#setgravity)
-  - [setDuration](#setduration)
-  - [setContent](#setcontent)
-  - [setContentStyle](#setcontentstyle)
-  - [setBackground](#setbackground)
-  - [setIcon](#seticon)
-  - [setTopIcon](#settopicon)
+  - [setView(view:View)](#setviewviewview)
+  - [setGravity(gravity: Int, x: Int, y: Int)](#setgravitygravity-int-x-int-y-int)
+  - [setDuration(duration: Int)](#setdurationduration-int)
+  - [setContent(content:String)](#setcontentcontentstring)
+  - [setContentStyle(textColor: Int, textSize: Float)](#setcontentstyletextcolor-int-textsize-float)
+  - [setBackground(bg: Int)](#setbackgroundbg-int)
+  - [setIcon(icon:Int)](#seticoniconint)
+  - [setTopIcon(icon:Int)](#settopiconiconint)
 
 ## How to use
 
@@ -52,8 +52,8 @@ When the layout needs to be re-adjusted or re-modified, you can customize the Vi
 Example:
 
 ```kotlin
-val view = LayoutInflater.from(context).inflate(resource, null)
-setView(view)
+val toastView = LayoutInflater.from(context).inflate(resource, null)
+setView(toastView)
 ```
 
 ## setGravity(gravity: Int, x: Int, y: Int)
