@@ -3,14 +3,14 @@
 - [Directory](#directory)
   - [How to use](#how-to-use)
 - [Property](#property)
-  - [setView(view:View)](#setviewviewview)
-  - [setGravity(gravity: Int, x: Int, y: Int)](#setgravitygravity-int-x-int-y-int)
-  - [setDuration(duration: Int)](#setdurationduration-int)
-  - [setContent(content:String)](#setcontentcontentstring)
-  - [setContentStyle(textColor: Int, textSize: Float)](#setcontentstyletextcolor-int-textsize-float)
-  - [setBackground(bg: Int)](#setbackgroundbg-int)
-  - [setIcon(icon:Int)](#seticoniconint)
-  - [setTopIcon(icon:Int)](#settopiconiconint)
+  - [setView](#setviewviewview)
+  - [setGravity](#setgravitygravity-int-x-int-y-int)
+  - [setDuration](#setdurationduration-int)
+  - [setContent](#setcontentcontentstring)
+  - [setContentStyle](#setcontentstyletextcolor-int-textsize-float)
+  - [setBackground](#setbackgroundbg-int)
+  - [setIcon](#seticoniconint)
+  - [setTopIcon](#settopiconiconint)
 
 ## How to use
 
