@@ -45,7 +45,7 @@ AngryToast.Builder(this)
 
 # Property
 
-## setView
+## setView(view:View)
 
 When the layout needs to be re-adjusted or re-modified, you can customize the View through this property.
 
@@ -56,7 +56,7 @@ val view = LayoutInflater.from(context).inflate(resource, null)
 setView(view)
 ```
 
-## setGravity
+## setGravity(gravity: Int, x: Int, y: Int)
 
 After enabling, you can adjust the display position of the current Toast layout. Default Gravity.Top, optional "Gravity.CENTER", "Gravity.BOTTOM", and the following x and y, x corresponds to horizontal offset, y corresponds to vertical offset.
 
@@ -66,7 +66,7 @@ Example:
 setGravity(Gravity.Top,0,0)
 ```
 
-## setDuration
+## setDuration(duration: Int)
 
 After enabling, you can control the display time of Toast, the default Tost.LENGTH_SHORT, optional "Toast.LENGTH_SHORT", "Toasgt.LENGTH_LONG"
 
@@ -76,7 +76,7 @@ Example:
 setDuration(Toast.LENGTH_SHORT)
 ```
 
-## setContent
+## setContent(content:String)
 
 Using this method, you can display the content of Toast, the default is ""
 Example:
@@ -85,7 +85,7 @@ Example:
 setContent(”Test Example“)
 ```
 
-## setContentStyle
+## setContentStyle(textColor: Int, textSize: Float)
 
 Using this method, you can customize the color and size of the Toast content font
 Example:
@@ -94,7 +94,7 @@ Example:
 setContentStyle(R.color.black,14F)
 ```
 
-## setBackground
+## setBackground(bg: Int)
 
 After enabling, you can customize the Toast background color
 
@@ -104,7 +104,7 @@ Example:
 setBackground(R.drawable.purple)
 ```
 
-## setIcon
+## setIcon(icon:Int)
 
 Using this method, you can add the icon on the left side of the Toast content, the default is "", not displayed
 
@@ -114,7 +114,7 @@ Example:
 setIcon(R.drawable.warn)
 ```
 
-## setTopIcon
+## setTopIcon(icon:Int)
 
 After using this method, add the icon above the Toast content, the default is "", not displayed
 
