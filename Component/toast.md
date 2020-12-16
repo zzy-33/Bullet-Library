@@ -6,6 +6,7 @@
   - [setView](#setviewviewview)
   - [setGravity](#setgravitygravity-int-x-int-y-int)
   - [setDuration](#setdurationduration-int)
+  - [setIconFont](#seticonfonticon-string)
   - [setContent](#setcontentcontentstring)
   - [setContentStyle](#setcontentstyletextcolor-int-textsize-float)
   - [setBackground](#setbackgroundbg-int)
@@ -15,6 +16,15 @@
 ## How to use
 
 The usage method is also very simple. Through the Builder initialization, you can set up Background, Content, icon and many other styles according to your needs. Here are a few different ways of writing, you can refer to the following examples.
+
+![toast4](../Image/toast4.png)
+
+```kotlin
+AngryToast.Builder(this)
+    .setIconFont("warn")
+    .setContent("测试数据")
+    .show()
+```
 
 ![toast1](../Image/toast3.png)
 
@@ -74,6 +84,14 @@ Example:
 
 ```kotlin
 setDuration(Toast.LENGTH_SHORT)
+```
+
+## setIconFont(icon: String)
+
+After enabling, you can use the existing iconfont parameters, each parameter displays a different icon, optional parameters: "warn", "success"
+
+```kotlin
+.setIconFont("warn")
 ```
 
 ## setContent(content:String)
