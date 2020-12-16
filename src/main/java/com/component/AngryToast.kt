@@ -31,10 +31,13 @@ class AngryToast(context: Context) : Toast(context) {
         private var toastBackground: Int = 0
         private var toastIcon: Int = 0
         private var toastTopIcon: Int = 0
+        private var toastIconFontColor: Int = 0
 
         private var toastContent: String = ""
+        private var toastIconFont: String = ""
 
         private var contentSize: Float = 0F
+        private var toastIconFontSize: Float = 0F
 
         private var contentView: View? = null
 
@@ -55,27 +58,38 @@ class AngryToast(context: Context) : Toast(context) {
             val message = view.findViewById<TextView>(R.id.toastText)
             val icon = view.findViewById<ImageView>(R.id.toastIcon)
             val topIcon = view.findViewById<ImageView>(R.id.toastTopIcon)
+            val iconFont = view.findViewById<TextView>(R.id.toastIcon2)
 
-            when {
-                toastGravity != 0 -> {
-                    toast.setGravity(toastGravity, toastGravityX, toastGravityY)
-                }
-                toastDuration != 0 -> {
-                    toast.duration = toastDuration
-                }
-                toastBackground != 0 -> {
-                    toastBg?.setBackgroundResource(toastBackground)
-                }
-                contentColor != 0 -> {
-                    message.setTextColor(ContextCompat.getColor(context, contentColor))
-                }
-                contentSize != 0F -> {
-                    message.setTextSize(TypedValue.COMPLEX_UNIT_SP, contentSize)
-                }
+            when (toastIconFont) {
+                "warn" -> setIconFont(context, iconFont, R.string.ic_warn)
+                "success" -> setIconFont(context, iconFont, R.string.ic_success)
+            }
+
+            if (toastGravity != 0) {
+                toast.setGravity(toastGravity, toastGravityX, toastGravityY)
+            }
+            if (toastDuration != 0) {
+                toast.duration = toastDuration
+            }
+            if (toastBackground != 0) {
+                toastBg?.setBackgroundResource(toastBackground)
+            }
+            if (contentColor != 0) {
+                message.setTextColor(ContextCompat.getColor(context, contentColor))
+            }
+            if (toastIconFontColor != 0) {
+                iconFont.setTextColor(ContextCompat.getColor(context, toastIconFontColor))
+            }
+            if (contentSize != 0F) {
+                message.setTextSize(TypedValue.COMPLEX_UNIT_SP, contentSize)
+            }
+            if (toastIconFontSize != 0F) {
+                iconFont.setTextSize(TypedValue.COMPLEX_UNIT_SP, toastIconFontSize)
             }
             Glide.with(icon).load(toastIcon).into(icon)
             Glide.with(topIcon).load(toastTopIcon).into(topIcon)
             message?.text = toastContent
+
             if (toastIcon != 0) {
                 icon.visibility = View.VISIBLE
             } else {
@@ -85,6 +99,11 @@ class AngryToast(context: Context) : Toast(context) {
                 topIcon.visibility = View.VISIBLE
             } else {
                 topIcon.visibility = View.GONE
+            }
+            if (toastIconFont.isNotEmpty()) {
+                iconFont.visibility = View.VISIBLE
+            } else {
+                iconFont.visibility = View.GONE
             }
         }
 
@@ -113,6 +132,21 @@ class AngryToast(context: Context) : Toast(context) {
          */
         fun setDuration(duration: Int): Builder {
             this.toastDuration = duration
+            return this
+        }
+
+        /**
+         * set icon font
+         * icon use by "warn","success"
+         */
+        fun setIconFont(icon: String): Builder {
+            this.toastIconFont = icon
+            return this
+        }
+
+        fun setIconFontStyle(iconColor: Int, iconSize: Float): Builder {
+            this.toastIconFontColor = iconColor
+            this.toastIconFontSize = iconSize
             return this
         }
 
