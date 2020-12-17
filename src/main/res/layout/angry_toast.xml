@@ -12,7 +12,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/shape_black03_4"
+        android:background="@drawable/angry_black03_4"
         android:elevation="3dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -50,7 +50,7 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="5dp"
                 android:gravity="center"
-                android:textColor="@color/white"
+                android:textColor="@color/angry_white"
                 android:textSize="18sp"
                 android:visibility="gone" />
 
@@ -61,7 +61,7 @@
                 android:maxWidth="240dp"
                 android:maxLines="1"
                 android:text="测试数据"
-                android:textColor="@color/white"
+                android:textColor="@color/angry_white"
                 android:textSize="13sp" />
         </LinearLayout>
 

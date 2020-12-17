@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ic_success" translatable="false">&#xe683;</string>
-    <string name="ic_warn" translatable="false">&#xe619;</string>
+    <string name="angry_ic_success" translatable="false">&#xe683;</string>
+    <string name="angry_ic_warn" translatable="false">&#xe619;</string>
 
 </resources>

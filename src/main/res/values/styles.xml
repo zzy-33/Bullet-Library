@@ -15,21 +15,4 @@
         <item name="android:windowBackground">@color/transparent</item>
     </style>
 
-    <!--    redDialog-->
-    <style name="Theme.Dialog.red" parent="Theme.dialog">
-        <item name="dialog_view_marginBottom">20dp</item>
-        <item name="dialog_view_width">140dp</item>
-        <item name="dialog_view_height">44dp</item>
-        <item name="dialog_view_weight">0</item>
-        <item name="dialog_main_bg">@drawable/shape_white_5</item>
-        <item name="dialog_view_line">@color/transparent</item>
-        <item name="dialog_view_title">@color/black_04</item>
-        <item name="dialog_view_content">@color/black_04</item>
-        <item name="dialog_view_cancel">@color/black_03</item>
-        <item name="dialog_view_ok">@color/white</item>
-        <item name="dialog_view_cancel_bg">@drawable/shape_gray01__40</item>
-        <item name="dialog_view_ok_bg">@drawable/step_red_40</item>
-        <item name="dialog_view_cancel_marginEnd">10dp</item>
-    </style>
-
 </resources>

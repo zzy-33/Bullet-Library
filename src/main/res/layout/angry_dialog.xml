@@ -6,8 +6,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
-    tools:background="@color/black"
-    tools:theme="@style/Theme.Dialog.red">
+    tools:background="@color/angry_black">
 
     <LinearLayout
         android:id="@+id/angry_dialog_view"
@@ -16,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:background="?attr/dialog_main_bg"
+        android:background="@drawable/angry_white_5"
         android:orientation="vertical">
 
         <TextView
@@ -27,7 +26,7 @@
             android:layout_marginBottom="-5dp"
             android:gravity="center"
             android:paddingTop="20dp"
-            android:textColor="?attr/dialog_view_title"
+            android:textColor="@color/angry_black_04"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -41,31 +40,30 @@
             android:paddingTop="20dp"
             android:paddingEnd="30dp"
             android:paddingBottom="20dp"
-            android:textColor="?attr/dialog_view_content"
+            android:textColor="@color/angry_black_04"
             android:textSize="15sp"
             tools:text="questionnaire_failed_text2" />
 
         <View
+            android:id="@+id/angry_dialog_horizontal_view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="?attr/dialog_view_line" />
+            android:background="@color/angry_gray" />
 
         <LinearLayout
+            android:id="@+id/angry_dialog_button_view"
             android:layout_width="match_parent"
-            android:layout_height="?attr/dialog_view_height"
-            android:layout_marginBottom="?attr/dialog_view_marginBottom"
+            android:layout_height="50dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/angry_dialog_cancel"
-                android:layout_width="?attr/dialog_view_width"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="?attr/dialog_view_cancel_marginEnd"
-                android:layout_weight="?attr/dialog_view_weight"
-                android:background="?attr/dialog_view_cancel_bg"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="?attr/dialog_view_cancel"
+                android:textColor="@color/angry_black_03"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 tools:text="Cancel" />
@@ -74,16 +72,15 @@
                 android:id="@+id/angry_dialog_vertical_view"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="?attr/dialog_view_line" />
+                android:background="@color/angry_gray" />
 
             <TextView
                 android:id="@+id/angry_dialog_confirm"
-                android:layout_width="?attr/dialog_view_width"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="?attr/dialog_view_weight"
-                android:background="?attr/dialog_view_ok_bg"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="?attr/dialog_view_ok"
+                android:textColor="@color/angry_black_03"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 tools:text="OK" />
