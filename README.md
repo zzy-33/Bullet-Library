@@ -7,4 +7,3 @@
 - Android
   - [Dialog](/Component/dialog.md)
   - [Toast](/Component/toast.md)
-  
