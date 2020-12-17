@@ -61,7 +61,7 @@ class AngryToast(context: Context) : Toast(context) {
             val iconFont = view.findViewById<TextView>(R.id.toastIcon2)
 
             when (toastIconFont) {
-                "warn" -> setIconFont(context, iconFont, R.string.angry_ic_warn)
+                "info" -> setIconFont(context, iconFont, R.string.angry_ic_warn)
                 "success" -> setIconFont(context, iconFont, R.string.angry_ic_success)
             }
 
