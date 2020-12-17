@@ -87,13 +87,15 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             val dialogConfirm = view.findViewById<TextView>(R.id.angry_dialog_confirm)
             val dialogVertical = view.findViewById<View>(R.id.angry_dialog_vertical_view)
             val dialogHorizontal = view.findViewById<View>(R.id.angry_dialog_horizontal_view)
-            val dialogButtonView = view.findViewById<LinearLayout>(R.id.angry_dialog_button_view)
+            val dialogCancelView = view.findViewById<LinearLayout>(R.id.angry_dialog_button_view)
+            val dialogConfirmView = view.findViewById<LinearLayout>(R.id.angry_dialog_button_view2)
 
             dialogTitle.text = title
             dialogContent.text = content
             dialogCancel.text = cancel
             dialogConfirm.text = confirm
-            dialogButtonView.setPadding(buttonLeft, buttonTop, buttonRight, buttonBottom)
+            dialogCancelView.setPadding(buttonLeft, buttonTop, buttonRight, buttonBottom)
+            dialogConfirmView.setPadding(buttonLeft, buttonTop, buttonRight, buttonBottom)
 
             if (verticalView != 0) {
                 dialogVertical.visibility = verticalView
@@ -152,14 +154,14 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             }
 
             if (cancel.isEmpty()) {
-                dialogCancel.visibility = View.GONE
+                dialogCancelView.visibility = View.GONE
             } else {
-                dialogCancel.visibility = View.VISIBLE
+                dialogCancelView.visibility = View.VISIBLE
             }
             if (confirm.isEmpty()) {
-                dialogConfirm.visibility = View.GONE
+                dialogConfirmView.visibility = View.GONE
             } else {
-                dialogConfirm.visibility = View.VISIBLE
+                dialogConfirmView.visibility = View.VISIBLE
             }
             if (title.isEmpty()) {
                 dialogTitle.visibility = View.GONE
@@ -212,7 +214,6 @@ class AngryDialog(context: Context, themeResId: Int) : Dialog(context, themeResI
             this.buttonTop = top
             this.buttonRight = right
             this.buttonBottom = bottom
-
             return this
         }
 

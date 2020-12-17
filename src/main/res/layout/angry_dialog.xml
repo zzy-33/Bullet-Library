@@ -51,22 +51,28 @@
             android:background="@color/angry_gray" />
 
         <LinearLayout
-            android:id="@+id/angry_dialog_button_view"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/angry_dialog_cancel"
+            <LinearLayout
+                android:id="@+id/angry_dialog_button_view"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/angry_black_03"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:text="Cancel" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/angry_dialog_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/angry_black_03"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="Cancel" />
+            </LinearLayout>
 
             <View
                 android:id="@+id/angry_dialog_vertical_view"
@@ -74,16 +80,24 @@
                 android:layout_height="match_parent"
                 android:background="@color/angry_gray" />
 
-            <TextView
-                android:id="@+id/angry_dialog_confirm"
+            <LinearLayout
+                android:id="@+id/angry_dialog_button_view2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:textColor="@color/angry_black_03"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                tools:text="OK" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/angry_dialog_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/angry_black_03"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="OK" />
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
