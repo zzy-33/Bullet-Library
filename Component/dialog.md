@@ -4,7 +4,7 @@
   - [Introduction](#introduction)
   - [How to use](#how-to-use)
 - [Property](#property)
-  - [setDialogTheme(theme: String)](#setdialogthemetheme-string)
+  - [setDialogTheme](#setdialogthemetheme-string)
   - [setView(view:View)](#setviewviewview)
   - [setCanceledOnTouchOutside(touched: Boolean)](#setcanceledontouchoutsidetouched-boolean)
   - [setDialogBackground(background: Int)](#setdialogbackgroundbackground-int)
