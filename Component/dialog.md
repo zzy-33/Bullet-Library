@@ -4,20 +4,20 @@
   - [Introduction](#introduction)
   - [How to use](#how-to-use)
 - [Property](#property)
-  - [setDialogTheme](#setdialogthemetheme-string)
-  - [setView](#setviewviewview)
-  - [setCanceledOnTouchOutside](#setcanceledontouchoutsidetouched-boolean)
-  - [setDialogBackground](#setdialogbackgroundbackground-int)
-  - [setTitle](#settitletext-string)
-  - [setTitleStyle](#settitlestyletextcolor-int-textsize-float)
-  - [setContent](#setcontenttext-string)
-  - [setContentStyle](#setcontentstyletextcolor-int-textsize-float)
-  - [setCancel](#setcanceltext-string)
-  - [setCancelStyle](#setcancelstyletextcolor-int-textsize-float)
-  - [setConfirm](#setconfirmtextstring)
-  - [setConfirmStyle](#setconfirmstyletextcolor-int-textsize-float)
-  - [setCancelListener](#setcancellistenerlistener-viewonclicklistener--null)
-  - [setConfirmListener](#setconfirmlistenerlistener-viewonclicklistener--null)
+  - [setDialogTheme(theme: String)](#setdialogthemetheme-string)
+  - [setView(view:View)](#setviewviewview)
+  - [setCanceledOnTouchOutside(touched: Boolean)](#setcanceledontouchoutsidetouched-boolean)
+  - [setDialogBackground(background: Int)](#setdialogbackgroundbackground-int)
+  - [setTitle(text: String)](#settitletext-string)
+  - [setTitleStyle(textColor: Int, textSize: Float)](#settitlestyletextcolor-int-textsize-float)
+  - [setContent(text: String)](#setcontenttext-string)
+  - [setContentStyle(textColor: Int, textSize: Float)](#setcontentstyletextcolor-int-textsize-float)
+  - [setCancel(text: String)](#setcanceltext-string)
+  - [setCancelStyle(textColor: Int, textSize: Float)](#setcancelstyletextcolor-int-textsize-float)
+  - [setConfirm(text:String)](#setconfirmtextstring)
+  - [setConfirmStyle(textColor: Int, textSize: Float)](#setconfirmstyletextcolor-int-textsize-float)
+  - [setCancelListener(listener: View.OnClickListener? = null)](#setcancellistenerlistener-viewonclicklistener--null)
+  - [setConfirmListener(listener: View.OnClickListener? = null)](#setconfirmlistenerlistener-viewonclicklistener--null)
   
 ## Introduction
 
@@ -26,6 +26,7 @@ Use AngryDialog’s well-designed dialog, such as: upgrade prompt, select prompt
 
 
 ## How to use
+
 ![white](../Image/dialog1.png)
 
 ```kotlin
