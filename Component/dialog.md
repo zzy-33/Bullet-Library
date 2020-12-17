@@ -26,15 +26,16 @@ Use AngryDialog’s well-designed dialog, such as: upgrade prompt, select prompt
 
 
 ## How to use
-
 ![white](../Image/dialog1.png)
 
-```kotlin 
+```kotlin
 AngryDialog.Builder(this)
     .setTitle("Tips")
     .setContent("white Dialog with tips")
+    .setConfirm("OK")
+    .setCancel("Cancel")
     .setConfirmListener(View.OnClickListener {
-        Log.e("AngryDialog","confirm is onclick")
+        Log.e("AngryDialog", "confirm is onclick")
     })
     .create()
     .show()
@@ -46,9 +47,12 @@ AngryDialog.Builder(this)
 AngryDialog.Builder(this)
     .setTitle("Tips")
     .setContent("white Dialog with tips")
-    .setConfirm("")
+    .setCancel("Cancel")
+    .setCancelListener(View.OnClickListener {
+        Log.e("AngryDialog", "cancel is onclick")
+    })
     .create()
-    .show()
+    .show()                
 ```
 
 ![white3](../Image/dialog3.png)
@@ -56,26 +60,34 @@ AngryDialog.Builder(this)
 ```kotlin
 AngryDialog.Builder(this)
     .setTitle("Tips")
-    .setDialogBackground(R.drawable.shape_purple_5)
-    .setTitleStyle(R.color.white, 20F)
-    .setContentStyle(R.color.white, 14F)
-    .setCancelStyle(R.color.white, 16F)
-    .setConfirmStyle(R.color.white, 16F)
     .setContent("white Dialog with tips")
+    .setConfirm("OK")
+    .setCancel("Cancel")
+    .setDialogBackground(R.drawable.shape_purple_5)
+    .setTitleStyle(R.color.white)
+    .setContentStyle(R.color.white)
+    .setCancelStyle(R.color.white)
+    .setConfirmStyle(R.color.white)
     .create()
-    .show()
+    .show()        
 ```
 
 ![red](../Image/dialog4.png)
 
 ```kotlin
 AngryDialog.Builder(this)
-    .setDialogTheme("red")
     .setTitle("Tips")
     .setContent("white Dialog with tips")
+    .setCancel("Cancel")
+    .setConfirm("OK")
+    .setLineView(View.INVISIBLE, View.GONE)
+    .setButtonPadding(15, 5, 15, 30)
+    .setCancelStyle(R.color.black_03, background = R.drawable.shape_gray_40)
+    .setConfirmStyle(R.color.white, background = R.drawable.shape_red_40)
     .create()
-    .show()
+    .show()        
 ```
+
 
 # Property
 
