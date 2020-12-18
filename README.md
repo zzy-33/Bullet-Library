@@ -5,5 +5,5 @@
 ## 目录
 
 - Android
-  - [Dialog](../../Component/dialog.md)
-  - [Toast](../../Component/toast.md)
+  - [Dialog](/Component/dialog.md)
+  - [Toast](/Component/toast.md)
